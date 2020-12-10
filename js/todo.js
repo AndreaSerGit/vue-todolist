@@ -16,7 +16,12 @@ var app = new Vue (
     } ,
       methods: {
         aggiungiElemento: function() {
-          this.listaCose.push(this.nuovoElemento)
+          if(this.nuovoElemento == '') {
+            alert('Inserisci almeno una parola')
+          } else {
+            this.listaCose.push(this.nuovoElemento)
+          }
+          this.nuovoElemento = ''
         },
         eliminaElemento: function(index) {
           this.listaCose.splice(index, 1)
