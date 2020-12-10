@@ -8,11 +8,12 @@
   </head>
   <body>
     <div id="lista">
+      <h1>LISTA DELLA SPESA</h1>
       <input v-on:keyup.enter="aggiungiElemento" type="text" name="" value="" v-model="nuovoElemento" placeholder="Aggungi elemento alla lista">
       <button type="button" name="button"
        @click="aggiungiElemento" >Aggiungi</button>
       <ul>
-        <li v-for="(cose, index) in listaCose">{{cose}} {{index}}<span class= 'cancella' @click="eliminaElemento(index)">X</span></li>
+        <li v-for="(cose, index) in listaCose">{{cose}} <span class= 'cancella' @click="eliminaElemento(index)">X</span></li>
       </ul>
 
 
