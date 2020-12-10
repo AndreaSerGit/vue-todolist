@@ -10,18 +10,22 @@ var app = new Vue (
     el: '#lista' ,
     data: {
       listaCose: [
-        'Comprare le uova', 'Comprare il guanciale', 'Comprare il pecorino', 'Comprare il pepe nero'
+        'comprare le uova', 'comprare il guanciale', 'comprare il pecorino', 'comprare il pepe nero'
       ] ,
       nuovoElemento: '',
     } ,
+      created: function() {
+        this.listaCose.sort()
+      },
       methods: {
         aggiungiElemento: function() {
           if(this.nuovoElemento == '') {
             alert('Inserisci almeno una parola')
           } else {
             this.listaCose.push(this.nuovoElemento)
+            this.listaCose.sort()
           }
-          this.nuovoElemento = ''
+          this.nuovoElemento = '';
         },
         eliminaElemento: function(index) {
           this.listaCose.splice(index, 1)
