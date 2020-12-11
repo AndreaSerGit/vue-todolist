@@ -12,23 +12,36 @@ var app = new Vue (
       listaCose: [
         'comprare le uova', 'comprare il guanciale', 'comprare il pecorino', 'comprare il pepe nero'
       ] ,
-      nuovoElemento: '',
+      nuovoElemento: '' ,
+      ricerca: '',
+      listaFiltrata: [] ,
     } ,
       created: function() {
         this.listaCose.sort()
+        this.listaFiltrata = this.listaCose
       },
       methods: {
         aggiungiElemento: function() {
           if(this.nuovoElemento == '') {
             alert('Inserisci almeno una parola')
           } else {
-            this.listaCose.push(this.nuovoElemento)
-            this.listaCose.sort()
+            this.listaFiltrata.push(this.nuovoElemento)
+            this.listaFiltrata.sort()
           }
           this.nuovoElemento = '';
         },
         eliminaElemento: function(index) {
-          this.listaCose.splice(index, 1)
+          this.listaFiltrata.splice(index, 1)
+          if(this.listaFiltrata.length == 0) {
+            alert('Bravo! Non ci sono più cose da fare!')
+          }
+        },
+        filtraElemento: function() {
+          this.listaFiltrata = this.listaCose.filter(
+            (element) => {
+              return element.includes(this.ricerca)
+              }
+          )
         }
       }
   }

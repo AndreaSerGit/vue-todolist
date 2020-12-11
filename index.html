@@ -12,8 +12,10 @@
       <input v-on:keyup.enter="aggiungiElemento" type="text" name="" value="" v-model="nuovoElemento" placeholder="Aggungi elemento alla lista">
       <button type="button" name="button"
        @click="aggiungiElemento" >Aggiungi</button>
+       <input type="text" name="" value="" v-model="ricerca">
+       <button type="button" name="button" @click="filtraElemento">Cerca</button>
       <ul>
-        <li v-for="(cose, index) in listaCose">{{cose}} <span class= 'cancella' @click="eliminaElemento(index)">X</span></li>
+        <li v-for="(cose, index) in listaFiltrata">{{cose}} <span class= 'cancella' @click="eliminaElemento(index)">X</span></li>
       </ul>
 
 
